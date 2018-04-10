@@ -27,6 +27,14 @@ fun Int.times(block: () -> Unit): Unit {
     }
 }
 
+fun String.times(num: Int):String {
+    var result:String = ""
+    for (it in 1..num){
+        result += this
+    }
+    return result
+}
+
 
 // Use this function
 fun process(message: String, block: (String) -> String): String {
@@ -35,7 +43,7 @@ fun process(message: String, block: (String) -> String): String {
 val r1 = process("FOO", {"BAR"}) // call process() with message "FOO" and a block that returns "BAR"
 
 val r2_message = "wooga"
-val r2 = process("FOO", {r2_message.toUpperCase()+r2_message.toUpperCase()+r2_message.toUpperCase()})
+val r2 = process("FOO", {r2_message.toUpperCase().times(3)})
 // call process() with message "FOO" and a block that upper-cases 
 // r2_message, and repeats it three times with no spaces: "WOOGAWOOGAWOOGA"
 
@@ -63,6 +71,16 @@ class Command(val prompt: String) {
         return result
     }
 }
+
+
+/*  EXTRA CREDIT
+    1. Seneca the Younger was a Roman philosopher, statesman and dramatist from 4 BCE - 65 CE. 
+       He was a tutor and adviser to the Roman emperor Nero
+    2. Seneca was commonly associated with Stoicism. 
+    3. Stoicism  asserts that virtue (such as wisdom) is happiness and judgment should be based on 
+       behavior, rather than words and that we don’t control and cannot rely on external events, only 
+       ourselves and our responses.
+ */
 
 
 
